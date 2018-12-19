@@ -1,13 +1,13 @@
 function [filtered, r, mxv, maxvec] = matched_filt(spike, templates)
 tic;
 %initialise ouput
-filtered = zeros(256,151,64);
+filtered = zeros(256,101,64);
 for i = 1:256
     %set to current template
     temp = flipud(squeeze(templates(i,:,:)));
    for j = 1:64
        %convolve current channel for signal and template
-       filtered(i,:,j) = conv(spike(j,:),temp(:,j),'same');
+       filtered(i,:,j) = conv(spike(j,:),temp(:,j));
    end
     
 end
